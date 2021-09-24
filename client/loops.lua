@@ -1,20 +1,9 @@
 CreateThread(function()
     while true do
         Wait(0)
-        if NetworkIsSessionStarted() then
-            Wait(10)
-            TriggerServerEvent('QBCore:PlayerJoined')
-            return
-        end
-    end
-end)
-
-CreateThread(function()
-    while true do
-        Wait(0)
         if LocalPlayer.state['isLoggedIn'] then
             Wait((1000 * 60) * QBCore.Config.UpdateInterval)
-            TriggerEvent('QBCore:Player:UpdatePlayerData')
+            TriggerServerEvent('QBCore:UpdatePlayer')
         end
     end
 end)

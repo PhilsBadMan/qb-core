@@ -90,7 +90,7 @@ RegisterNetEvent('QBCore:server:OpenServer', function()
   end
 )
 
-RegisterNetEvent('QBCore:UpdatePlayer', function(data)
+RegisterNetEvent('QBCore:UpdatePlayer', function()
 	local src = source
 	local ped = GetPlayerPed(src)
 	local Player = QBCore.Functions.GetPlayer(src)

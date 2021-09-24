@@ -52,7 +52,7 @@ end)
 
 RegisterNetEvent('QBCore:Command:DeleteVehicle', function()
     local ped = PlayerPedId()
-    local veh = GetVehiclePedIsIn(ped)
+    local veh = GetVehiclePedIsUsing(ped)
     if veh ~= 0 then
         SetEntityAsMissionEntity(veh, true, true)
         DeleteVehicle(veh)
@@ -75,8 +75,7 @@ RegisterNetEvent('QBCore:Player:SetPlayerData', function(val)
 end)
 
 RegisterNetEvent('QBCore:Player:UpdatePlayerData', function()
-    local data = {}
-    TriggerServerEvent('QBCore:UpdatePlayer', data)
+    TriggerServerEvent('QBCore:UpdatePlayer')
 end)
 
 RegisterNetEvent('QBCore:Notify', function(text, type, length)
