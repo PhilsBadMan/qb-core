@@ -5,6 +5,7 @@ description 'QB-Core'
 version '1.0.0'
 
 shared_scripts { 
+	'import.lua',
 	'config.lua',
 	'shared.lua'
 }
@@ -13,8 +14,7 @@ client_scripts {
 	'client/main.lua',
 	'client/functions.lua',
 	'client/loops.lua',
-	'client/events.lua',
-	'client/debug.lua'
+	'client/events.lua'
 }
 
 server_scripts {
@@ -23,8 +23,7 @@ server_scripts {
 	'server/loops.lua',
 	'server/player.lua',
 	'server/events.lua',
-	'server/commands.lua',
-	'server/debug.lua'
+	'server/commands.lua'
 }
 
 ui_page {

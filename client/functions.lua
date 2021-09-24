@@ -38,14 +38,6 @@ function QBCore.Functions.DrawText3D(x, y, z, text)
     ClearDrawOrigin()
 end
 
-function QBCore.Functions.GetPlayerData(cb)
-    if cb then
-        cb(QBCore.PlayerData)
-    else
-        return QBCore.PlayerData
-    end
-end
-
 function QBCore.Functions.Notify(text, textype, length)
     local ttype = textype or 'primary'
     local length = length or 5000
@@ -172,12 +164,6 @@ end
 function QBCore.Functions.DeleteVehicle(vehicle)
     SetEntityAsMissionEntity(vehicle, true, true)
     DeleteVehicle(vehicle)
-end
-
-function QBCore.Functions.Notify(text, textype, length)
-    local ttype = textype or 'primary'
-    local length = length or 5000
-    SendNUIMessage({action = 'show', type = ttype, length = length, text = text})
 end
 
 function QBCore.Functions.TriggerCallback(name, cb, ...)

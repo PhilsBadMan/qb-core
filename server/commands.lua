@@ -30,10 +30,7 @@ function QBCore.Commands.Refresh(source)
     end
 end
 
-QBCore.Commands.Add('tp', 'TP To Player or Coords (Admin Only)', {
-    {name = 'id/x', help = 'ID of player or X position'},
-    {name = 'y', help = 'Y position'}, {name = 'z', help = 'Z position'}
-}, false, function(source, args)
+QBCore.Commands.Add('tp', 'TP To Player or Coords (Admin Only)', {{name = 'id/x', help = 'ID of player or X position'},{name = 'y', help = 'Y position'}, {name = 'z', help = 'Z position'}}, false, function(source, args)
     local src = source
     if (args[1] and (args[2] == nil and args[3] == nil)) then
         local target = GetPlayerPed(tonumber(args[1]))
@@ -59,10 +56,7 @@ QBCore.Commands.Add('tp', 'TP To Player or Coords (Admin Only)', {
     end
 end, 'admin')
 
-QBCore.Commands.Add('addpermission', 'Give Player Permissions (God Only)', {
-    {name = 'id', help = 'ID of player'},
-    {name = 'permission', help = 'Permission level'}
-}, true, function(source, args)
+QBCore.Commands.Add('addpermission', 'Give Player Permissions (God Only)', {{name = 'id', help = 'ID of player'},{name = 'permission', help = 'Permission level'}}, true, function(source, args)
     local src = source
     local Player = QBCore.Functions.GetPlayer(tonumber(args[1]))
     local permission = tostring(args[2]):lower()
@@ -73,9 +67,7 @@ QBCore.Commands.Add('addpermission', 'Give Player Permissions (God Only)', {
     end
 end, 'user')
 
-QBCore.Commands.Add('removepermission', 'Remove Players Permissions (God Only)', {
-    {name = 'id', help = 'ID of player'}
-}, true, function(source, args)
+QBCore.Commands.Add('removepermission', 'Remove Players Permissions (God Only)', {{name = 'id', help = 'ID of player'}}, true, function(source, args)
     local src = source
     local Player = QBCore.Functions.GetPlayer(tonumber(args[1]))
     if Player then
@@ -85,9 +77,7 @@ QBCore.Commands.Add('removepermission', 'Remove Players Permissions (God Only)',
     end
 end, 'god')
 
-QBCore.Commands.Add('car', 'Spawn Vehicle (Admin Only)',
-    {{name = 'model', help = 'Model name of the vehicle'}
-}, true, function(source, args)
+QBCore.Commands.Add('car', 'Spawn Vehicle (Admin Only)',{{name = 'model', help = 'Model name of the vehicle'}}, true, function(source, args)
     local src = source
     TriggerClientEvent('QBCore:Command:SpawnVehicle', src, args[1])
 end, 'admin')
@@ -102,11 +92,7 @@ QBCore.Commands.Add('tpm', 'TP To Marker (Admin Only)', {}, false, function(sour
     TriggerClientEvent('QBCore:Command:GoToMarker', src)
 end, 'admin')
 
-QBCore.Commands.Add('givemoney', 'Give A Player Money (Admin Only)', {
-    {name = 'id', help = 'Player ID'},
-    {name = 'moneytype', help = 'Type of money (cash, bank, crypto)'},
-    {name = 'amount', help = 'Amount of money'}
-}, true, function(source, args)
+QBCore.Commands.Add('givemoney', 'Give A Player Money (Admin Only)', {{name = 'id', help = 'Player ID'},{name = 'moneytype', help = 'Type of money (cash, bank, crypto)'},{name = 'amount', help = 'Amount of money'}}, true, function(source, args)
     local src = source
     local Player = QBCore.Functions.GetPlayer(tonumber(args[1]))
     if Player then
@@ -116,11 +102,7 @@ QBCore.Commands.Add('givemoney', 'Give A Player Money (Admin Only)', {
     end
 end, 'admin')
 
-QBCore.Commands.Add('setmoney', 'Set Players Money Amount (Admin Only)', {
-    {name = 'id', help = 'Player ID'},
-    {name = 'moneytype', help = 'Type of money (cash, bank, crypto)'},
-    {name = 'amount', help = 'Amount of money'}
-}, true, function(source, args)
+QBCore.Commands.Add('setmoney', 'Set Players Money Amount (Admin Only)', {{name = 'id', help = 'Player ID'},{name = 'moneytype', help = 'Type of money (cash, bank, crypto)'},{name = 'amount', help = 'Amount of money'}}, true, function(source, args)
     local src = source
     local Player = QBCore.Functions.GetPlayer(tonumber(args[1]))
     if Player then
@@ -130,10 +112,7 @@ QBCore.Commands.Add('setmoney', 'Set Players Money Amount (Admin Only)', {
     end
 end, 'admin')
 
-QBCore.Commands.Add('setjob', 'Set A Players Job (Admin Only)', {
-    {name = 'id', help = 'Player ID'}, {name = 'job', help = 'Job name'},
-    {name = 'grade', help = 'Grade'}
-}, true, function(source, args)
+QBCore.Commands.Add('setjob', 'Set A Players Job (Admin Only)', {{name = 'id', help = 'Player ID'}, {name = 'job', help = 'Job name'},{name = 'grade', help = 'Grade'}}, true, function(source, args)
     local src = source
     local Player = QBCore.Functions.GetPlayer(tonumber(args[1]))
     if Player then
@@ -149,10 +128,7 @@ QBCore.Commands.Add('job', 'Check Your Job', {}, false, function(source)
     TriggerClientEvent('QBCore:Notify', src, string.format('[Job]: %s [Grade]: %s [On Duty]: %s', PlayerJob.label, PlayerJob.grade.name, PlayerJob.onduty))
 end, 'user')
 
-QBCore.Commands.Add('setgang', 'Set A Players Gang (Admin Only)', {
-    {name = 'id', help = 'Player ID'}, {name = 'gang', help = 'Name of a gang'},
-    {name = 'grade', help = 'Grade'}
-}, true, function(source, args)
+QBCore.Commands.Add('setgang', 'Set A Players Gang (Admin Only)', {{name = 'id', help = 'Player ID'}, {name = 'gang', help = 'Name of a gang'},{name = 'grade', help = 'Grade'}}, true, function(source, args)
     local src = source
     local Player = QBCore.Functions.GetPlayer(tonumber(args[1]))
     if Player then
@@ -168,9 +144,7 @@ QBCore.Commands.Add('gang', 'Check Your Gang', {}, false, function(source)
     TriggerClientEvent('QBCore:Notify', src, string.format('[Gang]: %s [Grade]: %s', PlayerGang.label, PlayerGang.grade.name))
 end, 'user')
 
-QBCore.Commands.Add('clearinv', 'Clear Players Inventory (Admin Only)',
-    {{name = 'id', help = 'Player ID'}
-}, false, function(source, args)
+QBCore.Commands.Add('clearinv', 'Clear Players Inventory (Admin Only)',{{name = 'id', help = 'Player ID'}}, false, function(source, args)
     local src = source
     local playerId = args[1] or src
     local Player = QBCore.Functions.GetPlayer(tonumber(playerId))
