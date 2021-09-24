@@ -5,6 +5,7 @@ QBCore.Shared = QBShared
 QBCore.ServerCallbacks = {}
 QBCore.UseableItems = {}
 
+<<<<<<< Updated upstream
 -- Check perms on start
 
 CreateThread(
@@ -21,3 +22,8 @@ CreateThread(
     end
   end
 )
+=======
+exports('GetCoreObject', function()
+	return QBCore
+end)
+>>>>>>> Stashed changes

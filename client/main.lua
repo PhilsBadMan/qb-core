@@ -5,6 +5,7 @@ QBCore.Config = QBConfig
 QBCore.Shared = QBShared
 QBCore.ServerCallbacks = {}
 
+<<<<<<< Updated upstream
 -- Loops
 
 CreateThread(
@@ -261,3 +262,8 @@ RegisterNetEvent(
     TriggerServerEvent('QBCore:Server:UseItem', item)
   end
 )
+=======
+exports('GetCoreObject', function()
+	return QBCore
+end)
+>>>>>>> Stashed changes
