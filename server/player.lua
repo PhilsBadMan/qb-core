@@ -19,9 +19,9 @@ function QBCore.Player.Login(source, citizenid, newData)
 					PlayerData.gang = {}
 				end
 			end
-			QBCore.Player.CheckPlayerData(source, PlayerData)
+			QBCore.Player.CheckPlayerData(src, PlayerData)
 		else
-			QBCore.Player.CheckPlayerData(source, newData)
+			QBCore.Player.CheckPlayerData(src, newData)
 		end
 		return true
 	else
